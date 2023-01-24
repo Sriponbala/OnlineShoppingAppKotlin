@@ -9,10 +9,12 @@ group = "org.example"
 version = "1.0-SNAPSHOT"
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
+    implementation("org.bala:app:1.0-SNAPSHOT")
     testImplementation(kotlin("test"))
 }
 

@@ -4,7 +4,94 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e6cf44f4-04cc-4ec5-9236-711fdb7e35d2" name="Changes" comment="" />
+    <list default="true" id="e6cf44f4-04cc-4ec5-9236-711fdb7e35d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressManagement.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressSelection.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Confirmation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Entry.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/FilterActionsMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/HomePageMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductActivitiesMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductQuantityManagement.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductsManagementMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountField.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/WishListMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/DashboardServices.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/IOHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/AddressPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CartPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CheckOutPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/EntryPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/HomePage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/OrdersPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/PaymentPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/ShopPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignInPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignUpPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/UserAccountPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/WishListPage.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/Navigator.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/PageInstanceProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/CartActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/CheckOutActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/OrdersHistoryActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/ProductActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/UserAccountActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/WishListActivities.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/AccountInfo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Address.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Cart.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/CartItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Filter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/LineItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Order.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/OrderLineItemMapping.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Product.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/ProductInfo.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/StockAvailability.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/User.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/UserPassword.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishList.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/database/Database.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/AddressField.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/BookType.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Brand.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Colour.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/FilterBy.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Gender.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Payment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Price.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/ProductCategory.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/StockStatus.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/helper/Helper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/helper/InstanceProvider.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CartActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CartDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CheckOutActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/OrdersDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/OrdersHistoryActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UserAccountActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UserDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UtilityDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/WishListActivitiesContract.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/WishListDao.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/CartDaoImplementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/OrdersDaoImplementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/UserDaoImplementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/UtilityDaoImplementation.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +102,75 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/library">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="publishing" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+                <item name="library" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="OnlineShoppingAppKotlin" type="f1a62948:ProjectNode" />
+                <item name="library" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Sealed Class" />
+        <option value="Kotlin Object" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Kl9Y6CyZTWQAYQtaXQ0C7bVj7r" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -24,9 +180,69 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "1.8"
   }
 }]]></component>
+  <component name="RunManager" selected="Kotlin.MainKt">
+    <configuration name="OnlineShoppingAppKotlin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="OnlineShoppingAppKotlin [publishToMavenLocal]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="publishToMavenLocal" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainKt" />
+      <module name="OnlineShoppingAppKotlin.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]" />
+        <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
