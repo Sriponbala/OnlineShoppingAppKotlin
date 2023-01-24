@@ -5,7 +5,7 @@ import org.bala.helper.DashboardServices
 import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
 
-class HomePage: DashboardServices {
+internal class HomePage: DashboardServices {
 
     private lateinit var accountInfo: AccountInfo
     private var isLoggedIn: Boolean = false

@@ -15,7 +15,7 @@ import org.sri.interfaces.CartActivitiesContract
 import org.sri.interfaces.ProductActivitiesContract
 import org.sri.interfaces.WishListActivitiesContract
 
-class ShopPage(private val productActivities: ProductActivitiesContract) : DashboardServices {
+internal class ShopPage(private val productActivities: ProductActivitiesContract) : DashboardServices {
 
     private val wishListsActivities: WishListActivitiesContract by lazy { InstanceProvider.wishListsActivities }
     private val cartActivities: CartActivitiesContract by lazy { InstanceProvider.cartActivities }

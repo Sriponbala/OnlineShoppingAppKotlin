@@ -3,7 +3,7 @@ package org.bala.ui
 import org.sri.interfaces.OrdersHistoryActivitiesContract
 import java.time.format.DateTimeFormatter
 
-class OrdersPage(private val ordersHistoryActivities: OrdersHistoryActivitiesContract) {
+internal class OrdersPage(private val ordersHistoryActivities: OrdersHistoryActivitiesContract) {
 
     fun displayOrdersHistory(userId: String) {
         val ordersHistory = ordersHistoryActivities.getOrdersHistory(userId)

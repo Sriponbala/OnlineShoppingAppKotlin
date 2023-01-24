@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class UserAccountField {
+internal enum class UserAccountField {
     Name,
     Email,
     Addresses,

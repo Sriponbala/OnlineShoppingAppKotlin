@@ -9,7 +9,7 @@ import org.sri.data.AccountInfo
 import org.sri.data.User
 import org.sri.interfaces.UserAccountActivitiesContract
 
-class UserAccountPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
+internal class UserAccountPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
 
     private lateinit var accountInfo: AccountInfo
     private lateinit var user: User

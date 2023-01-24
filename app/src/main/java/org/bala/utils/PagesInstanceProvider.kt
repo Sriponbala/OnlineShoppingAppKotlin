@@ -3,7 +3,7 @@ package org.bala.utils
 import org.bala.ui.*
 import org.sri.helper.InstanceProvider
 
-object PagesInstanceProvider {
+internal object PagesInstanceProvider {
 
     fun getInstanceOfEntryPage() = EntryPage()
 

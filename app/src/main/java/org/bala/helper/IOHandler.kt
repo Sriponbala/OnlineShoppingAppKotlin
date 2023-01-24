@@ -5,7 +5,7 @@ import java.time.LocalDate
 import java.util.regex.Pattern
 import kotlin.random.Random
 
-object IOHandler {
+internal object IOHandler {
 
     fun confirm(): Boolean {
         while(true) {

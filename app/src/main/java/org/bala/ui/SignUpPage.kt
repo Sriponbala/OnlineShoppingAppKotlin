@@ -5,7 +5,7 @@ import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
 import org.sri.helper.InstanceProvider
 
-class SignUpPage {
+internal class SignUpPage {
 
     private var name: String = ""
     private var mobile: String = ""

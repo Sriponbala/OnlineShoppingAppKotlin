@@ -8,7 +8,7 @@ import org.sri.data.Address
 import org.sri.enums.AddressField
 import org.sri.interfaces.UserAccountActivitiesContract
 
-class AddressPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
+internal class AddressPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
 
     private lateinit var addresses: List<Address>
     private var doorNo = ""

@@ -11,7 +11,7 @@ import org.sri.data.Product
 import org.sri.enums.StockStatus
 import org.sri.interfaces.CartActivitiesContract
 
-class CartPage(private val cartActivities: CartActivitiesContract): DashboardServices {
+internal class CartPage(private val cartActivities: CartActivitiesContract): DashboardServices {
 
     private var isCartEmpty = false
     private lateinit var cartItems: MutableList<Triple<CartItem, Product, StockStatus>>

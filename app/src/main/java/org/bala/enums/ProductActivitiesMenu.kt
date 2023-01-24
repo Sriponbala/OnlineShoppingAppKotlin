@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class ProductActivitiesMenu {
+internal enum class ProductActivitiesMenu {
     ADD_TO_CART,
     ADD_TO_WISHLIST,
     REMOVE_FROM_WISHLIST,

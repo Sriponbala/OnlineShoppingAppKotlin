@@ -5,7 +5,7 @@ import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
 import org.sri.helper.InstanceProvider
 
-class SignInPage {
+internal class SignInPage {
 
     private var mobile: String = ""
     private var password: String = ""

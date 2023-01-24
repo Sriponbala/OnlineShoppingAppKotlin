@@ -4,7 +4,7 @@ import org.bala.enums.Entry
 import org.bala.helper.DashboardServices
 import org.bala.utils.Navigator
 
-class EntryPage: DashboardServices {
+internal class EntryPage: DashboardServices {
 
     fun openEntryPage(navigator: Navigator) {
         println("-----ONLINE SHOPPING APPLICATION-----\n")

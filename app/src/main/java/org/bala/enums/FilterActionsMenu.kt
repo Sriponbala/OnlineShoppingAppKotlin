@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class FilterActionsMenu {
+internal enum class FilterActionsMenu {
     SEARCH_PRODUCT,
     APPLY_FILTER,
     CLEAR_FILTER,

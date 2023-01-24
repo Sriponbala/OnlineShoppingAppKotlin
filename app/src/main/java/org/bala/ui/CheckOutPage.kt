@@ -11,7 +11,7 @@ import org.sri.enums.StockStatus
 import org.sri.interfaces.CheckOutActivitiesContract
 import java.time.LocalDate
 
-class CheckOutPage(private val checkOutActivities: CheckOutActivitiesContract): DashboardServices {
+internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesContract): DashboardServices {
 
     private var finalizedListOfItems = mutableListOf<LineItem>()
     private lateinit var finalizedItems: MutableList<Pair<Product, StockStatus>>

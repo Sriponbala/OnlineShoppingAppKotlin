@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class AddressManagement {
+internal enum class AddressManagement {
     EDIT,
     DELETE,
     BACK

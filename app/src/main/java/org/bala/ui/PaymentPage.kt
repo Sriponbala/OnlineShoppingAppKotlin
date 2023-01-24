@@ -4,7 +4,7 @@ import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.sri.enums.Payment
 
-class PaymentPage: DashboardServices {
+internal class PaymentPage: DashboardServices {
 
     private lateinit var modeOfPayment: Payment
     private fun selectModeOfPayment() {

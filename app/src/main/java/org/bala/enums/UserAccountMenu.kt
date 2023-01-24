@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class UserAccountMenu {
+internal enum class UserAccountMenu {
     VIEW_WISHLIST,
     VIEW_ORDERS_HISTORY,
     EDIT_ACCOUNT,

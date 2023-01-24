@@ -1,6 +1,6 @@
 package org.bala.helper
 
-interface DashboardServices {
+internal interface DashboardServices {
 
     fun <E: Enum<E>> showDashboard(title: String, enumArray: Array<E>) {
         var sno = 1

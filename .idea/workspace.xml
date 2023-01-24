@@ -5,92 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6cf44f4-04cc-4ec5-9236-711fdb7e35d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressManagement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressSelection.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Confirmation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Entry.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/FilterActionsMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/HomePageMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductActivitiesMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductQuantityManagement.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductsManagementMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountField.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/WishListMenu.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/DashboardServices.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/IOHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/AddressPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CartPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CheckOutPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/EntryPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/HomePage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/OrdersPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/PaymentPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/ShopPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignInPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignUpPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/UserAccountPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/WishListPage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/Navigator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/PageInstanceProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/CartActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/CheckOutActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/OrdersHistoryActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/ProductActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/UserAccountActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/activity/WishListActivities.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/AccountInfo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Address.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Cart.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/CartItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Filter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/LineItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Order.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/OrderLineItemMapping.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/Product.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/ProductInfo.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/StockAvailability.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/User.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/UserPassword.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishList.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/database/Database.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/AddressField.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/BookType.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Brand.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Colour.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/FilterBy.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Gender.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Payment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/Price.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/ProductCategory.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/enums/StockStatus.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/helper/Helper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/helper/InstanceProvider.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CartActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CartDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/CheckOutActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/OrdersDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/OrdersHistoryActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UserAccountActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UserDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/UtilityDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/WishListActivitiesContract.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/WishListDao.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/CartDaoImplementation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/OrdersDaoImplementation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/UserDaoImplementation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/UtilityDaoImplementation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressManagement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressManagement.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressSelection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/AddressSelection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Confirmation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Confirmation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Entry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/Entry.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/FilterActionsMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/FilterActionsMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/HomePageMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/HomePageMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductActivitiesMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductActivitiesMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductQuantityManagement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductQuantityManagement.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductsManagementMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/ProductsManagementMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountField.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountField.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/UserAccountMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/WishListMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/enums/WishListMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/DashboardServices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/DashboardServices.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/IOHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/helper/IOHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/AddressPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/AddressPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CartPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CartPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CheckOutPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/CheckOutPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/EntryPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/EntryPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/HomePage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/HomePage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/OrdersPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/OrdersPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/PaymentPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/PaymentPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/ShopPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/ShopPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignInPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignInPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignUpPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/SignUpPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/UserAccountPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/UserAccountPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/WishListPage.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/ui/WishListPage.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/PageInstanceProvider.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/org/bala/utils/PagesInstanceProvider.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/data/LineItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/LineItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/data/OrderLineItemMapping.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/OrderIdLineItemMapping.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +129,7 @@
     "jdk.selected.JAVA_MODULE": "1.8"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]">
     <configuration name="OnlineShoppingAppKotlin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -237,9 +181,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
+        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -252,6 +196,18 @@
       <option name="presentableId" value="Default" />
       <updated>1674538347072</updated>
     </task>
+    <task id="LOCAL-00001" summary="First Commit!">
+      <created>1674555708853</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1674555708853</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit!" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit!" />
   </component>
 </project>

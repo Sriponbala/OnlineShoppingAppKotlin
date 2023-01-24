@@ -8,7 +8,7 @@ import org.sri.data.Product
 import org.sri.data.WishList
 import org.sri.interfaces.WishListActivitiesContract
 
-class WishListPage(private val wishListsActivities: WishListActivitiesContract): DashboardServices {
+internal class WishListPage(private val wishListsActivities: WishListActivitiesContract): DashboardServices {
 
     private lateinit var wishListProductSkus : ArrayList<Product>
     private var isEmptyWishList: Boolean = true

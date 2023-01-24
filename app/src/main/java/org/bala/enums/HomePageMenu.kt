@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class HomePageMenu {
+internal enum class HomePageMenu {
     VIEW_PRODUCTS,
     VIEW_CART,
     YOUR_ACCOUNT,

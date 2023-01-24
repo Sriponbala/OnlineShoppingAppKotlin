@@ -1,6 +1,6 @@
 package org.bala.enums
 
-enum class Entry {
+internal enum class Entry {
     VIEW_APP,
     SIGN_UP,
     SIGN_IN,
