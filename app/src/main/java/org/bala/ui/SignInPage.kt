@@ -19,7 +19,7 @@ internal class SignInPage {
             val cartActivities = InstanceProvider.cartActivities
             getUserInputs()
             while (true) {
-                if (IOHandler.confirm()) {
+                if (IOHandler.confirm(1)) {
                     if (userAccountActivities.verifyAccount(mobile, password)) {
                         userId = userAccountActivities.getUserId(mobile)
                         if(userAccountActivities.getUser(userId)) {
@@ -51,20 +51,8 @@ internal class SignInPage {
     }
 
     private fun getUserInputs() {
-        do {
-            println("""ENTER MOBILE NUMBER:
-                |[Should contain 10 digits] 
-            """.trimMargin())
-            mobile = readLine()!!
-        } while(IOHandler.fieldValidation(mobile) || !IOHandler.validateMobileNumber(mobile))
-
-        do{
-            println("""ENTER PASSWORD:
-                |[Password can contain any of the following : a-zA-Z0-9!#@${'$'}%^&*_+`~]
-                |[It should contain 4 to 8 characters]
-            """.trimMargin())
-            password = readLine()!!
-        } while(IOHandler.fieldValidation(password) || !IOHandler.validatePasswordPattern(password))
+        mobile = IOHandler.readMobileNumber()
+        password = IOHandler.readPassword()
     }
 
 }

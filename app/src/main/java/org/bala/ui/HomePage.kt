@@ -1,11 +1,11 @@
 package org.bala.ui
 
 import org.bala.enums.HomePageMenu
-import org.bala.helper.DashboardServices
+import org.bala.helper.IOHandler
 import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
 
-internal class HomePage: DashboardServices {
+internal class HomePage {
 
     private lateinit var accountInfo: AccountInfo
     private var isLoggedIn: Boolean = false
@@ -22,8 +22,8 @@ internal class HomePage: DashboardServices {
             HomePageMenu.values().copyOfRange(0,4)
         }
         while(true) {
-            super.showDashboard("HOME PAGE", homePageActions)
-            when(super.getUserChoice(homePageActions)) {
+            IOHandler.showMenu("HOME PAGE", homePageActions)
+            when(IOHandler.getUserChoice(homePageActions)) {
                 HomePageMenu.VIEW_PRODUCTS -> {
                     if(isLoggedIn) {
                         navigator.goToShopPage(navigator, accountInfo)

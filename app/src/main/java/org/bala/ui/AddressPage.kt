@@ -2,13 +2,12 @@ package org.bala.ui
 
 import org.bala.enums.AddressManagement
 import org.bala.enums.AddressSelection
-import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.sri.data.Address
 import org.sri.enums.AddressField
 import org.sri.interfaces.UserAccountActivitiesContract
 
-internal class AddressPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
+internal class AddressPage(private val userAccountActivities: UserAccountActivitiesContract) {
 
     private lateinit var addresses: List<Address>
     private var doorNo = ""
@@ -45,12 +44,12 @@ internal class AddressPage(private val userAccountActivities: UserAccountActivit
             arrayOf(AddressSelection.ADD_NEW_ADDRESS, AddressSelection.SELECT_FROM_SAVED_ADDRESS, AddressSelection.GO_BACK)
         }
         while(true) {
-            super.showDashboard("ADDRESS PAGE DASHBOARD", addressSelectionOptions)
-            when(super.getUserChoice(addressSelectionOptions)) {
+            IOHandler.showMenu("ADDRESS PAGE MENU", addressSelectionOptions)
+            when(IOHandler.getUserChoice(addressSelectionOptions)) {
 
                 AddressSelection.ADD_NEW_ADDRESS -> {
                     getUserInputs()
-                    if(IOHandler.confirm()) {
+                    if(IOHandler.confirm(1)) {
                         addNewAddress()
                     }
                 }
@@ -121,8 +120,8 @@ internal class AddressPage(private val userAccountActivities: UserAccountActivit
             val addressId = selectAnAddress()
             val addressManagementOptions = AddressManagement.values()
             while(true) {
-                super.showDashboard("ADDRESS MANAGEMENT OPTIONS", addressManagementOptions)
-                return when(super.getUserChoice(addressManagementOptions)) {
+                IOHandler.showMenu("ADDRESS MANAGEMENT OPTIONS", addressManagementOptions)
+                return when(IOHandler.getUserChoice(addressManagementOptions)) {
                     AddressManagement.EDIT -> { // edit address
                         editAddress(addressId)
                         false
@@ -140,28 +139,28 @@ internal class AddressPage(private val userAccountActivities: UserAccountActivit
     private fun editAddress(addressId: String) {
         val addressFields = AddressField.values()
         while(true) {
-            super.showDashboard("ADDRESS FIELDS", addressFields)
-            when(super.getUserChoice(addressFields)) {
+            IOHandler.showMenu("ADDRESS FIELDS", addressFields)
+            when(IOHandler.getUserChoice(addressFields)) {
                 AddressField.DOORNUMBER -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.DOORNUMBER, getUserInput("door number"))
+                    userAccountActivities.updateAddress(addressId, AddressField.DOORNUMBER, IOHandler.readAddressField("door number"))
                 }
                 AddressField.FLATNAME -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.FLATNAME, getUserInput("flat name"))
+                    userAccountActivities.updateAddress(addressId, AddressField.FLATNAME, IOHandler.readAddressField("flat name"))
                 }
                 AddressField.STREET -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.STREET, getUserInput("street name"))
+                    userAccountActivities.updateAddress(addressId, AddressField.STREET, IOHandler.readAddressField("street name"))
                 }
                 AddressField.AREA -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.AREA, getUserInput("area name"))
+                    userAccountActivities.updateAddress(addressId, AddressField.AREA, IOHandler.readAddressField("area name"))
                 }
                 AddressField.CITY -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.CITY, getUserInput("city name"))
+                    userAccountActivities.updateAddress(addressId, AddressField.CITY, IOHandler.readAddressField("city name"))
                 }
                 AddressField.STATE -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.STATE, getUserInput("state name"))
+                    userAccountActivities.updateAddress(addressId, AddressField.STATE, IOHandler.readAddressField("state name"))
                 }
                 AddressField.PINCODE -> {
-                    userAccountActivities.updateAddress(addressId, AddressField.PINCODE, getPincode())
+                    userAccountActivities.updateAddress(addressId, AddressField.PINCODE, IOHandler.readPincode())
                 }
                 AddressField.BACK -> {
                     break
@@ -177,92 +176,19 @@ internal class AddressPage(private val userAccountActivities: UserAccountActivit
     }
 
     private fun selectAnAddress(): String {
-        var option: Int
-        var selectedAddress: String
-        while(true){
-            println("SELECT AN ADDRESS: ")
-            try{
-                val userInput = readLine()!!
-                option = userInput.toInt()
-                if(IOHandler.checkValidRecord(option,addresses.size)) {
-                    selectedAddress = addresses[option - 1].addressId
-                    break
-                } else {
-                    println("Invalid option! Try again")
-                }
-            } catch(exception: Exception) {
-                println("Invalid option! Try again!")
-            }
-        }
-        return selectedAddress
+        val option = IOHandler.readOption("address", addresses.size)
+        return addresses[option - 1].addressId
     }
-
 
     private fun getUserInputs() {
         println("FILL ADDRESS FIELDS: ")
-
-        do{
-            println("ENTER DOOR NUMBER: [Should not be empty]")
-            doorNo = readLine()!!
-        } while(IOHandler.fieldValidation(doorNo) || !IOHandler.validateAddressFields(doorNo))
-
-        do{
-            println("ENTER FLAT NAME: [Should not be empty]")
-            flatName = readLine()!!
-        } while(IOHandler.fieldValidation(flatName) || !IOHandler.validateAddressFields(flatName))
-
-        do{
-            println("ENTER STREET NAME: [Should not be empty]")
-            street = readLine()!!
-        } while(IOHandler.fieldValidation(street) || !IOHandler.validateAddressFields(street))
-
-        do{
-            println("ENTER AREA NAME: [Should not be empty]")
-            area = readLine()!!
-        } while(IOHandler.fieldValidation(area) || !IOHandler.validateAddressFields(area))
-
-        do{
-            println("ENTER CITY NAME: [Should not be empty]")
-            city = readLine()!!
-        } while(IOHandler.fieldValidation(city) || !IOHandler.validateAddressFields(city))
-
-        do{
-            println("ENTER STATE NAME: [Should not be empty]")
-            state = readLine()!!
-        } while(IOHandler.fieldValidation(state) || !IOHandler.validateAddressFields(state))
-
-        do{
-            println("""ENTER PINCODE: 
-                |[Should not be empty,
-                |Should start with number > 0,
-                |must contain 6 digits,
-                |Format: 600062 OR 600 062]
-            """.trimMargin())
-            pincode = readLine()!!
-        } while(IOHandler.fieldValidation(pincode) || !IOHandler.validatePincode(pincode))
-    }
-
-    private fun getUserInput(message: String = ""): String {
-        var userInput: String
-        do {
-            println("ENTER ${message.uppercase()}: [Should not be empty]")
-            userInput = readLine()!!
-        } while(IOHandler.fieldValidation(userInput) || !IOHandler.validateAddressFields(userInput))
-        return userInput
-    }
-
-    private fun getPincode(): String {
-        var pincode: String
-        do {
-            println("""ENTER PINCODE: 
-                |[Should not be empty,
-                |Should start with number > 0,
-                |must contain 6 digits,
-                |Format: 600062 OR 600 062]
-            """.trimMargin())
-            pincode = readLine()!!
-        } while(IOHandler.fieldValidation(pincode) || !IOHandler.validatePincode(pincode))
-        return pincode
+        doorNo = IOHandler.readAddressField("door number")
+        flatName = IOHandler.readAddressField("flat name")
+        street = IOHandler.readAddressField("street name")
+        area = IOHandler.readAddressField("area name")
+        city = IOHandler.readAddressField("city name")
+        state = IOHandler.readAddressField("state name")
+        pincode = IOHandler.readPincode()
     }
 
 }

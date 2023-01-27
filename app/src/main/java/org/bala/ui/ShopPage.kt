@@ -1,9 +1,7 @@
 package org.bala.ui
 
-import org.bala.enums.Confirmation
 import org.bala.enums.FilterActionsMenu
 import org.bala.enums.ProductActivitiesMenu
-import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
@@ -15,7 +13,7 @@ import org.sri.interfaces.CartActivitiesContract
 import org.sri.interfaces.ProductActivitiesContract
 import org.sri.interfaces.WishListActivitiesContract
 
-internal class ShopPage(private val productActivities: ProductActivitiesContract) : DashboardServices {
+internal class ShopPage(private val productActivities: ProductActivitiesContract) {
 
     private val wishListsActivities: WishListActivitiesContract by lazy { InstanceProvider.wishListsActivities }
     private val cartActivities: CartActivitiesContract by lazy { InstanceProvider.cartActivities }
@@ -62,23 +60,23 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                             displayProducts(false)
                         }
                         val filterActionsMenu = FilterActionsMenu.values()
-                        super.showDashboard("FILTER DASHBOARD", filterActionsMenu)
-                        when(super.getUserChoice(filterActionsMenu)) {
+                        IOHandler.showMenu("FILTER MENU", filterActionsMenu)
+                        when(IOHandler.getUserChoice(filterActionsMenu)) {
                             FilterActionsMenu.SEARCH_PRODUCT -> {
-                                getUserInputs()
+                                productName = IOHandler.readProductName()
                                 productsList = productActivities.getProductsList(productName)
                             }
                             FilterActionsMenu.APPLY_FILTER -> {
-                                val categories = ProductCategory.values()
-                                lateinit var category: ProductCategory
-                                while(true) {
-                                    if(IOHandler.confirm()) {
+                                if(productsList.isNotEmpty()) {
+                                    val categories = ProductCategory.values()
+                                    lateinit var category: ProductCategory
+                                    while(true) {
                                         println("Select a category:")
-                                        super.showDashboard("CATEGORIES", categories)
-                                        category = super.getUserChoice(categories)
+                                        IOHandler.showMenu("CATEGORIES", categories)
+                                        category = IOHandler.getUserChoice(categories)
                                         productsList = productActivities.getProductsList(category)
-                                        println("Do you want to apply one more filter for ${category.category}s?")
-                                        if(IOHandler.confirm()) {
+                                        println("Do you want to apply more filters for ${category.category}s?")
+                                        if(IOHandler.confirm(1)) {
                                             applyFilter(category)
                                             isFilterApplied = true
                                             break
@@ -87,9 +85,13 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                                             isFilterApplied = true
                                             break
                                         }
-                                    } else {
+                                    }
+                                } else {
+                                    if(!isFilterApplied) {
                                         isFilterApplied = false
-                                        break
+                                        println("No products found for applying filters!")
+                                    } else {
+                                        println("No products found for applying more filters!")
                                     }
                                 }
                             }
@@ -106,13 +108,13 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                                 if(productsList.isEmpty()) {
                                     println("No products found, so select option disabled!")
                                 } else {
-                                    val skuId = selectAProduct()
-                                    if(IOHandler.confirm()) {
-                                        productActivities(skuId)
-                                    }
+                                    val option = IOHandler.readOption("product", productsList.size)
+                                    val skuId = productsList[option - 1].first.skuId
+                                    productActivities(skuId)
                                 }
                             }
                             FilterActionsMenu.BACK -> {
+                                isFilterApplied = false
                                 break@label
                             }
                         }
@@ -142,8 +144,8 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                 productSku?.let { productSku ->
                     displayProductDetails(productSku)
                     val productActivitiesMenu = ProductActivitiesMenu.values()
-                    super.showDashboard("PRODUCT DASHBOARD", productActivitiesMenu)
-                    when (super.getUserChoice(productActivitiesMenu)) {
+                    IOHandler.showMenu("PRODUCT MENU", productActivitiesMenu)
+                    when (IOHandler.getUserChoice(productActivitiesMenu)) {
                         ProductActivitiesMenu.ADD_TO_CART -> {
                             if(isLoggedIn) {
                                 if(productSku.second == StockStatus.INSTOCK) {
@@ -209,26 +211,6 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
             println("exception: $exception")
             println("Something went wrong!")
         }
-    }
-    private fun selectAProduct(): String { // returns skuId
-        var option: Int
-        var selectedProductId: String
-        while(true){
-            println("SELECT A PRODUCT: ")
-            try{
-                val userInput = readLine()!!
-                option = userInput.toInt()
-                if(IOHandler.checkValidRecord(option, productsList.size)) {
-                    selectedProductId = productsList[option - 1].first.skuId
-                    break
-                } else {
-                    println("Invalid option! Try again!")
-                }
-            } catch(exception: Exception) {
-                println("Enter valid option!")
-            }
-        }
-        return selectedProductId
     }
 
     private fun displayProductDetails(productSku: Pair<Product, StockStatus>) {
@@ -316,50 +298,16 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                 }
             }
             filterOptions[filterOption] = filter
-            if(confirm()) {
+            if(IOHandler.confirm(2)) {
                 println("Select further filters: ")
             } else break
         }
         productsList = productActivities.getProductsList(productName, category, filterOptions)
-        for(i in productsList) {
-            println("1. ${i.first}")
-        }
-    }
-
-    private fun confirm(): Boolean {
-        while(true) {
-            println("Confirm: ")
-            for (option in Confirmation.values()) {
-                println("${option.ordinal + 1}. ${option.list[2]}")
-            }
-            try {
-                val choice = readLine()!!
-                val confirmationChoice = choice.toInt() // chance of exception
-                if(IOHandler.checkValidRecord(confirmationChoice, Confirmation.values().size)) {
-                    return when(Confirmation.values()[confirmationChoice - 1]) {
-                        Confirmation.CONTINUE -> true
-                        Confirmation.GO_BACK -> false
-                    }
-                } else {
-                    println("Enter proper input: ")
-                }
-            } catch(exception: Exception) {
-                println("Enter valid option!")
-            }
-        }
     }
 
     private fun <E: Enum<E>> getFilterChoice(title: String, filters: Array<E>): E {
-        super.showDashboard(title, filters)
-        return super.getUserChoice(filters)
-    }
-
-    private fun getUserInputs() {
-        do {
-            println("""ENTER PRODUCT NAME:
-            """.trimMargin())
-            productName = readLine()!!
-        } while(IOHandler.fieldValidation(productName))
+        IOHandler.showMenu(title, filters)
+        return IOHandler.getUserChoice(filters)
     }
 
 }

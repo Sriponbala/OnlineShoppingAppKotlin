@@ -1,18 +1,17 @@
 package org.bala.ui
 
-import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.sri.enums.Payment
 
-internal class PaymentPage: DashboardServices {
+internal class PaymentPage {
 
     private lateinit var modeOfPayment: Payment
     private fun selectModeOfPayment() {
         val payment = Payment.values()
         while(true) {
-            super.showDashboard("PAYMENT OPTIONS", payment)
-            modeOfPayment = super.getUserChoice(payment)
-            if(IOHandler.confirm()) {
+            IOHandler.showMenu("PAYMENT OPTIONS", payment)
+            modeOfPayment = IOHandler.getUserChoice(payment)
+            if(IOHandler.confirm(1)) {
                 break
             }
         }

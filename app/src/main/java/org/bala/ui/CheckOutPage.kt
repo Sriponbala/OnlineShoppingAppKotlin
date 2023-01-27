@@ -2,7 +2,6 @@ package org.bala.ui
 
 import org.bala.enums.ProductQuantityManagement
 import org.bala.enums.ProductsManagementMenu
-import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.bala.utils.Navigator
 import org.sri.data.*
@@ -11,7 +10,7 @@ import org.sri.enums.StockStatus
 import org.sri.interfaces.CheckOutActivitiesContract
 import java.time.LocalDate
 
-internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesContract): DashboardServices {
+internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesContract) {
 
     private var finalizedListOfItems = mutableListOf<LineItem>()
     private lateinit var finalizedItems: MutableList<Pair<Product, StockStatus>>
@@ -51,12 +50,13 @@ internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesCo
         while(true) {
             this.finalizedItems = checkOutActivities.getProductDetails(finalizedListOfItems)
             displayItemDetails(finalizedItems)
-            val checkOutPageDashboard = ProductsManagementMenu.values()
-            super.showDashboard("CHECK OUT PAGE", checkOutPageDashboard)
-            when(super.getUserChoice(checkOutPageDashboard)) {
+            val checkOutPageMenu = ProductsManagementMenu.values()
+            IOHandler.showMenu("CHECK OUT PAGE", checkOutPageMenu)
+            when(IOHandler.getUserChoice(checkOutPageMenu)) {
                 ProductsManagementMenu.SELECT_A_PRODUCT -> {
                     if(finalizedItems.isNotEmpty()) {
-                        val (product, _) = selectAnItem()
+                        val option = IOHandler.readOption("item", finalizedItems.size)
+                        val (product, _) = finalizedItems[option - 1]
                         doActivitiesOnSelectedItem(product)
                     } else {
                         println("No items selected to buy!")
@@ -86,12 +86,12 @@ internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesCo
                 navigator.goToAddressPage(true)
                 shippingAddress = navigator.goToAddressPageAndSelectShippingAddress()
                 if(shippingAddress != null) {
-                    if(IOHandler.confirm()) {
+                    if(IOHandler.confirm(0)) {
                         while(true) {
                             println("SELECT MODE OF PAYMENT: ")
                             payment = navigator.goToPaymentPage()
                             println("DO YOU WANT TO PLACE ORDER?")
-                            if(IOHandler.confirm()) {
+                            if(IOHandler.confirm(1)) {
                                 totalBill = checkOutActivities.getTotalBill(finalizedItems)
                                 checkOutActivities.addAllLineItemsToDb()
                                 checkOutActivities.updateStatusOfProducts()
@@ -142,80 +142,23 @@ internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesCo
         }
     }
 
-    private fun selectAnItem(): Pair<Product, StockStatus> {
-        var option: Int
-        var selectedItem: Pair<Product, StockStatus>
-        while(true){
-            println("SELECT AN ITEM: ")
-            try{
-                val userInput = readLine()!!
-                option = userInput.toInt()
-                if(IOHandler.checkValidRecord(option, finalizedItems.size)) {
-                    selectedItem = finalizedItems[option - 1]
-                    break
-                } else {
-                    println("Invalid option! Try again")
-                }
-            } catch(exception: Exception) {
-                println("Enter valid option!")
-            }
-        }
-        return selectedItem
-    }
-
-    private fun getQuantity(skuId: String): Int {
-        var quantity = 1
-        while(true) {
-            if(IOHandler.confirm()) {
-                println("ENTER THE QUANTITY REQUIRED: ")
-                try {
-                    val input = readLine()!!.toInt()
-                    if(input in 1..4) {
-                        val availableQuantity = checkOutActivities.getAvailableQuantityOfProduct(skuId)
-                        if(availableQuantity >= input) {
-                            quantity = input
-                            break
-                        } else {
-                            println("Only $availableQuantity items available!")
-                        }
-                    } else {
-                        if(input < 1) {
-                            println("You should select atleast 1 item!")
-                        } else {
-                            println("You can select a maximum of 4 items!")
-                        }
-                    }
-                } catch(exception: Exception) {
-                    println("Enter valid option!")
-                }
-            } else break
-        }
-        return quantity
-    }
-
     private fun doActivitiesOnSelectedItem(product: Product) {
         val productQuantityManagement = ProductQuantityManagement.values()
         while(true) {
-            super.showDashboard("ACTIVITIES ON SELECTED PRODUCT", productQuantityManagement)
-            when(super.getUserChoice(productQuantityManagement)) {
-
+            IOHandler.showMenu("ACTIVITIES ON SELECTED PRODUCT", productQuantityManagement)
+            when(IOHandler.getUserChoice(productQuantityManagement)) {
                 ProductQuantityManagement.CHANGE_QUANTITY -> {
-                    println("selectedItm: $product")
-                    println("finalItems: $finalizedItems  finalList: $finalizedListOfItems")
-                    this.quantity = getQuantity(product.skuId)
-                    if(IOHandler.confirm()) {
+                    this.quantity = IOHandler.getQuantity(product.skuId, checkOutActivities)
+                    if(IOHandler.confirm(1)) {
                         checkOutActivities.updateQuantityOfLineItem(product, orderedDate, quantity)
+                        println("Quantity updated!")
                         finalizedListOfItems = checkOutActivities.getLineItems()
                     }
                 }
-
                 ProductQuantityManagement.REMOVE -> {
-                    println("selectedItm: $product")
-                    println("finalItems: $finalizedItems  finalList: $finalizedListOfItems")
                     val iter = finalizedListOfItems.iterator()
                     for(it in iter) {
                         if (product.skuId == it.skuId) {
-                            println("iter: $iter")
                             iter.remove()
                         }
                     }
@@ -228,7 +171,6 @@ internal class CheckOutPage(private val checkOutActivities: CheckOutActivitiesCo
                     println("Item removed from finalised items!")
                     break
                 }
-
                 ProductQuantityManagement.GO_BACK -> {
                     break
                 }

@@ -2,14 +2,13 @@ package org.bala.ui
 
 import org.bala.enums.UserAccountField
 import org.bala.enums.UserAccountMenu
-import org.bala.helper.DashboardServices
 import org.bala.helper.IOHandler
 import org.bala.utils.Navigator
 import org.sri.data.AccountInfo
 import org.sri.data.User
 import org.sri.interfaces.UserAccountActivitiesContract
 
-internal class UserAccountPage(private val userAccountActivities: UserAccountActivitiesContract): DashboardServices {
+internal class UserAccountPage(private val userAccountActivities: UserAccountActivitiesContract) {
 
     private lateinit var accountInfo: AccountInfo
     private lateinit var user: User
@@ -30,8 +29,8 @@ internal class UserAccountPage(private val userAccountActivities: UserAccountAct
         displayUserDetails(this.user)
         val userAccountMenu = UserAccountMenu.values()
         while(true) {
-            super.showDashboard("YOUR ACCOUNT", userAccountMenu)
-            when(super.getUserChoice(userAccountMenu)) {
+            IOHandler.showMenu("YOUR ACCOUNT", userAccountMenu)
+            when(IOHandler.getUserChoice(userAccountMenu)) {
 
                 UserAccountMenu.VIEW_WISHLIST -> {
                     navigator.goToWishListPage(navigator, accountInfo.wishListId)
@@ -54,27 +53,19 @@ internal class UserAccountPage(private val userAccountActivities: UserAccountAct
     private fun editUserAccountDetails(navigator: Navigator) {
         val userAccountFields = UserAccountField.values()
         while(true) {
-            super.showDashboard("EDIT USER DETAILS", userAccountFields)
+            IOHandler.showMenu("EDIT USER DETAILS", userAccountFields)
             println("SELECT THE FIELD TO EDIT:")
-            when(super.getUserChoice(userAccountFields)) {
+            when(IOHandler.getUserChoice(userAccountFields)) {
 
                 UserAccountField.Name -> {
-                    var name: String
-                    do{
-                        println("ENTER NAME: ")
-                        name = readLine()!!
-                    } while(IOHandler.fieldValidation(name))
+                    val name = IOHandler.readName()
                     if(userAccountActivities.updateName(name)) {
                         println("Updated name successfully!")
                     } else println("Failed to update name!")
                 }
 
                 UserAccountField.Email -> {
-                    var email: String
-                    do {
-                        println("ENTER EMAIL: ")
-                        email = readLine()!!
-                    } while(!IOHandler.fieldValidation(email) && !IOHandler.validateEmail(email))
+                    val email = IOHandler.readEmail()
                     if(userAccountActivities.updateEmail(email)) {
                         println("Updated email successfully!")
                     } else println("Failed to update email!")

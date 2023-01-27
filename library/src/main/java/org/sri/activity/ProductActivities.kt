@@ -14,6 +14,7 @@ import org.sri.interfaces.UtilityDao
 internal class ProductActivities(private val utility: UtilityDao, private val productsDao: ProductsDao): ProductActivitiesContract {
 
     private lateinit var productsList: MutableList<Pair<Product, StockStatus>>
+    private lateinit var searchedProductsList: MutableList<Pair<Product, StockStatus>>
     private lateinit var filteredProductsList: MutableList<Pair<Product, StockStatus>>
     private var search = false
 
@@ -34,13 +35,18 @@ internal class ProductActivities(private val utility: UtilityDao, private val pr
             this.lowercase()
         }
         search = true
-        return productsList.filter { product ->
+        searchedProductsList = productsList.filter { product ->
             product.first.productName.contains(productName, ignoreCase = true)
         } as MutableList<Pair<Product, StockStatus>>
+        return searchedProductsList
     }
 
     override fun getProductsList(category: ProductCategory): MutableList<Pair<Product, StockStatus>> {
-        return filteredProductsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
+        return if(search) {
+            searchedProductsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
+        } else {
+            productsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
+        }
     }
 
     override fun getProductsList(name: String, category: ProductCategory, map: MutableMap<FilterBy, Filter>): MutableList<Pair<Product, StockStatus>> {
@@ -161,10 +167,6 @@ internal class ProductActivities(private val utility: UtilityDao, private val pr
         }
         return filteredList as MutableList<Pair<Product, StockStatus>>
     }
-
-    /*    override fun addProductDetails() {
-            productsDao.addProductDetails()
-        }*/
 
     override fun updateStatusOfProduct(lineItem: LineItem) {
         productsDao.updateStatusOfProduct(lineItem)

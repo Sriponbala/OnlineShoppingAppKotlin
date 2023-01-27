@@ -7,6 +7,9 @@ import org.sri.helper.InstanceProvider
 
 internal class SignUpPage {
 
+    private val userAccountActivities = InstanceProvider.userAccountActivities
+    private val wishListsActivities = InstanceProvider.wishListsActivities
+    private val cartActivities = InstanceProvider.cartActivities
     private var name: String = ""
     private var mobile: String = ""
     private var email: String = ""
@@ -20,49 +23,41 @@ internal class SignUpPage {
     fun signUp(navigator: Navigator) {
         println("--------------SIGNUP PAGE--------------")
         try {
-            val userAccountActivities = InstanceProvider.userAccountActivities
-            val wishListsActivities = InstanceProvider.wishListsActivities
-            val cartActivities = InstanceProvider.cartActivities
             getUserInputs()
             while(true) {
-                if (IOHandler.confirm()) {
-                    if(userAccountActivities.verifyAccount(mobile)) {
-                        val otp = IOHandler.generateOTP()
-                        println("OTP : $otp")
-                        while(true) {
-                            println("ENTER THE OTP: ")
-                            val currentOtp = readLine()!!
-                            if(IOHandler.verifyOtp(currentOtp, otp)) {
-                                userId = userAccountActivities.createAndGetUserId(name, mobile, email, password)
-                                if(userAccountActivities.getUser(userId)) {
-                                    wishListId = wishListsActivities.createAndGetWishListId(userId)
-                                    cartId = cartActivities.createAndGetCartId(userId)
-                                    if(userAccountActivities.createAccountInfo(userId, cartId, wishListId)) {
-                                        accountInfo = userAccountActivities.getAccountInfo(userId)
-                                        if(accountInfo != null) {
-                                            if(cartActivities.getCart(accountInfo!!.cartId)) {
-                                                println("SignUp Successful!")
-                                                navigator.goToHomePage(navigator, accountInfo!!)
-                                            } else {
-                                                println("Error...cart not found!")
-                                            }
+                if (IOHandler.confirm(1)) {
+                    val otp = IOHandler.generateOTP()
+                    println("OTP : $otp")
+                    while(true) {
+                        val currentOtp = IOHandler.readOTP()
+                        if(IOHandler.verifyOtp(currentOtp, otp)) {
+                            userId = userAccountActivities.createAndGetUserId(name, mobile, email, password)
+                            if(userAccountActivities.getUser(userId)) {
+                                wishListId = wishListsActivities.createAndGetWishListId(userId)
+                                cartId = cartActivities.createAndGetCartId(userId)
+                                if(userAccountActivities.createAccountInfo(userId, cartId, wishListId)) {
+                                    accountInfo = userAccountActivities.getAccountInfo(userId)
+                                    if(accountInfo != null) {
+                                        if(cartActivities.getCart(accountInfo!!.cartId)) {
+                                            println("Sign up Successful!")
+                                            navigator.goToHomePage(navigator, accountInfo!!)
                                         } else {
-                                            println("Account Info not found!")
+                                            println("Error...cart not found!")
                                         }
                                     } else {
-                                        println("Invalid userId!")
+                                        println("Account Info not found!")
                                     }
-                                    break
                                 } else {
-                                    println("User not found!")
-                                    break
+                                    println("Invalid userId!")
                                 }
+                                break
                             } else {
-                                println("Incorrect OTP! Try again!")
+                                println("User not found!")
+                                break
                             }
+                        } else {
+                            println("Incorrect OTP! Try again!")
                         }
-                    } else {
-                        println("User already exists!")
                     }
                     break
                 } else {
@@ -75,36 +70,18 @@ internal class SignUpPage {
     }
 
     private fun getUserInputs() {
-        do{
-            println("ENTER NAME: ")
-            name = readLine()!!
-        } while(IOHandler.fieldValidation(name))
-
-        do{
-            println("""ENTER MOBILE NUMBER:
-                |[Should contain 10 digits] 
-            """.trimMargin())
-            mobile = readLine()!!
-        }while(IOHandler.fieldValidation(mobile) || !IOHandler.validateMobileNumber(mobile))
-
-        do {
-            println("""ENTER EMAIL:
-                |[Format: localpart@example.com] 
-            """.trimMargin())
-            email = readLine()!!
-        } while(!IOHandler.fieldValidation(email) && !IOHandler.validateEmail(email))
-
-        do{
-            println("""ENTER PASSWORD:
-                |[Password can contain any of the following : a-zA-Z0-9!#@${'$'}%^&*_+`~]
-                |[It should contain 4 to 8 characters]""".trimMargin())
-            password = readLine()!!
-        } while(IOHandler.fieldValidation(password) || !IOHandler.validatePasswordPattern(password))
-
-        do{
-            println("ENTER CONFIRM PASSWORD: ")
-            confirmPassword = readLine()!!
-        } while(IOHandler.fieldValidation(confirmPassword) || !IOHandler.confirmPassword(confirmPassword,password))
+        name = IOHandler.readName()
+        while(true) {
+            mobile = IOHandler.readMobileNumber()
+            if(userAccountActivities.verifyAccount(mobile)) {
+                email = IOHandler.readEmail()
+                password = IOHandler.readPassword()
+                confirmPassword = IOHandler.readConfirmPassword(password)
+                break
+            } else {
+                println("User already exists!")
+            }
+        }
     }
 
 }

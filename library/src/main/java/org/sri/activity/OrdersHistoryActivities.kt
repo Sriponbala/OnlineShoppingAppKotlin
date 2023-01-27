@@ -46,8 +46,8 @@ internal class OrdersHistoryActivities(private val ordersDao: OrdersDao): Orders
                             }
                         }
                         if(!flag) {
-                            val productSku = productActivities.getProductDetails(it_lineItem.skuId)?.first// Pair<ProductSku, Status>.first = ProductSku
-                            productSku?.let {
+                            val product = productActivities.getProductDetails(it_lineItem.skuId)?.first// Pair<ProductSku, Status>.first = ProductSku
+                            product?.let {
                                 val tempOrder = Pair(it_order, it)
                                 tempOrdersList.add(tempOrder)
                                 tempQuantityMap[it.skuId] = 1

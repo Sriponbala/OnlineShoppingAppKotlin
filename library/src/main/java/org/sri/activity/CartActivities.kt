@@ -100,9 +100,6 @@ internal class CartActivities(private val utility: UtilityDao, private val cartD
         return if(utility.checkIfCartExists(cartId)) {
             if(utility.checkIfItemIsInCart(this.cart!!, skuId)) {
                 cartDao.changeItemQuantity(cartId , skuId, quantity)
-                for(i in getCartItems()) {
-                    println("CartItems: $i q: ${i.first.quantity} ")
-                }
                 calculateAndUpdateSubtotal(cartId, getCartItems())
                 true
             } else false
