@@ -4,6 +4,7 @@ import org.sri.data.Filter
 import org.sri.data.LineItem
 import org.sri.data.Product
 import org.sri.data.ProductInfo
+import org.sri.enums.CommonFilter
 import org.sri.enums.FilterBy
 import org.sri.enums.ProductCategory
 import org.sri.enums.StockStatus
@@ -43,9 +44,50 @@ internal class ProductActivities(private val utility: UtilityDao, private val pr
 
     override fun getProductsList(category: ProductCategory): MutableList<Pair<Product, StockStatus>> {
         return if(search) {
+            println(searchedProductsList.size)
             searchedProductsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
         } else {
             productsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
+        }
+    }
+
+    override fun retrieveProductsList(category: ProductCategory, commonFiltersMap: MutableMap<CommonFilter, Filter>): MutableList<Pair<Product, StockStatus>> {
+        filteredProductsList = searchedProductsList
+        filteredProductsList = retrieveProductsList(commonFiltersMap)
+        return filteredProductsList.filter { it.first.category == category } as MutableList<Pair<Product, StockStatus>>
+    }
+
+    override fun retrieveProductsList(commonFiltersMap: MutableMap<CommonFilter, Filter>): MutableList<Pair<Product, StockStatus>> {
+        filteredProductsList = searchedProductsList
+        commonFiltersMap.forEach { (commonFilter, finalFilter) ->
+            val filterBy: FilterBy? = when(commonFilter) {
+                CommonFilter.PRICE -> FilterBy.PRICE
+                CommonFilter.STATUS -> FilterBy.STATUS
+                else -> null
+            }
+            filteredProductsList = getFilteredList(filterBy!!, finalFilter)
+        }
+        return filteredProductsList
+    }
+
+    override fun getProductsList(category: ProductCategory, map: MutableMap<FilterBy, Filter>): MutableList<Pair<Product, StockStatus>> {
+        map.forEach { (filterBy, filterOption) ->
+            filteredProductsList = getFilteredList(category, filterBy, filterOption)
+        }
+        return filteredProductsList
+    }
+
+    private fun getFilteredList(filterOption: FilterBy, finalFilter: Filter): MutableList<Pair<Product, StockStatus>> {
+        return when(filterOption) {
+            FilterBy.PRICE -> {
+                val filter : Filter.PriceFilter = finalFilter as Filter.PriceFilter
+                filteredProductsList.filter { it.first.price.toLong() in filter.start .. filter.end } as MutableList<Pair<Product, StockStatus>>
+            }
+            FilterBy.STATUS -> {
+                val filter : Filter.StatusFilter = finalFilter as Filter.StatusFilter
+                filteredProductsList.filter { it.second.status == filter.status }.also { println(it) } as MutableList<Pair<Product, StockStatus>>
+            }
+            else -> mutableListOf()
         }
     }
 

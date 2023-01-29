@@ -28,6 +28,8 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
     private var isFilterApplied = false
     private var productName: String = ""
     private val filterOptions: MutableMap<FilterBy, Filter> = mutableMapOf()
+    private var filtersForSearch = false
+    private lateinit var category: ProductCategory
 
     fun initializer(
         navigator: Navigator,
@@ -65,34 +67,38 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                             FilterActionsMenu.SEARCH_PRODUCT -> {
                                 productName = IOHandler.readProductName()
                                 productsList = productActivities.getProductsList(productName)
+                                filtersForSearch = true
                             }
                             FilterActionsMenu.APPLY_FILTER -> {
+                                filterOptions.clear()
                                 if(productsList.isNotEmpty()) {
-                                    val categories = ProductCategory.values()
-                                    lateinit var category: ProductCategory
-                                    while(true) {
-                                        println("Select a category:")
-                                        IOHandler.showMenu("CATEGORIES", categories)
-                                        category = IOHandler.getUserChoice(categories)
-                                        productsList = productActivities.getProductsList(category)
-                                        println("Do you want to apply more filters for ${category.category}s?")
-                                        if(IOHandler.confirm(1)) {
-                                            applyFilter(category)
-                                            isFilterApplied = true
-                                            break
-                                        } else {
-                                            println("Filtered by the category ${category.category}!")
-                                            isFilterApplied = true
-                                            break
+                                    if (filtersForSearch) {
+                                        applyFilter()
+                                        isFilterApplied = true
+                                    } else {
+                                        val categories = ProductCategory.values()
+                                        while(true) {
+                                            println("Select a category:")
+                                            IOHandler.showMenu("CATEGORIES", categories)
+                                            category = IOHandler.getUserChoice(categories)
+                                            productsList = productActivities.getProductsList(category)
+                                            println("Do you want to apply more filters for ${category.category}s?")
+                                            if(IOHandler.confirm(1)) {
+                                                applyFilter(category)
+                                                isFilterApplied = true
+                                                break
+                                            } else {
+                                                println("Filtered by the category ${category.category}!")
+                                                isFilterApplied = true
+                                                break
+                                            }
                                         }
                                     }
                                 } else {
                                     if(!isFilterApplied) {
                                         isFilterApplied = false
-                                        println("No products found for applying filters!")
-                                    } else {
-                                        println("No products found for applying more filters!")
                                     }
+                                    println("No products found for applying filters!")
                                 }
                             }
                             FilterActionsMenu.CLEAR_FILTER -> {
@@ -251,6 +257,40 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
         }
     }
 
+    private fun applyFilter() {
+        val commonFilters = CommonFilter.values()
+        val commonFiltersMap: MutableMap<CommonFilter, Filter> = mutableMapOf()
+        var isCategoryApplied = false
+        while (true) {
+            IOHandler.showMenu("Filter by", commonFilters)
+            when(IOHandler.getUserChoice(commonFilters)) {
+                CommonFilter.PRICE -> {
+                    commonFiltersMap[CommonFilter.PRICE] = Filter.PriceFilter(getFilterChoice("PRICE", Price.values()))
+                }
+                CommonFilter.STATUS -> {
+                    commonFiltersMap[CommonFilter.STATUS] = Filter.StatusFilter(getFilterChoice("STATUS", StockStatus.values()))
+                }
+                CommonFilter.CATEGORY -> {
+                    IOHandler.showMenu("Category", ProductCategory.values())
+                    category = IOHandler.getUserChoice(ProductCategory.values())
+                    isCategoryApplied = true
+                }
+            }
+            if(!IOHandler.confirm(2)) {
+                break
+            }
+        }
+        if (isCategoryApplied) {
+            productsList = productActivities.retrieveProductsList(category, commonFiltersMap)
+            println("Do you want to apply more filters for ${category.category}s ?")
+            if (IOHandler.confirm(1)) {
+                applyFilter(category)
+            }
+        } else {
+            productsList = productActivities.retrieveProductsList(commonFiltersMap)
+        }
+    }
+
     private fun applyFilter(category: ProductCategory) {
         while(true) {
             lateinit var filterArray: ArrayList<FilterBy>
@@ -302,7 +342,11 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                 println("Select further filters: ")
             } else break
         }
-        productsList = productActivities.getProductsList(productName, category, filterOptions)
+        productsList = if (filtersForSearch) {
+            productActivities.getProductsList(category, filterOptions)
+        } else {
+            productActivities.getProductsList(productName, category, filterOptions)
+        }
     }
 
     private fun <E: Enum<E>> getFilterChoice(title: String, filters: Array<E>): E {
