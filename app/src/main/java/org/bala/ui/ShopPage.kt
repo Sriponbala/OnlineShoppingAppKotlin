@@ -214,7 +214,6 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                 }
             }
         } catch(exception: Exception) {
-            println("exception: $exception")
             println("Something went wrong!")
         }
     }

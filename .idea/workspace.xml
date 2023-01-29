@@ -110,7 +110,7 @@
     "jdk.selected.JAVA_MODULE": "1.8"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]">
     <configuration name="OnlineShoppingAppKotlin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,9 +162,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
+        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
