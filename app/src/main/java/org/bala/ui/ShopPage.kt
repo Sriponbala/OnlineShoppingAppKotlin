@@ -120,6 +120,7 @@ internal class ShopPage(private val productActivities: ProductActivitiesContract
                                 }
                             }
                             FilterActionsMenu.BACK -> {
+                                filtersForSearch = false
                                 isFilterApplied = false
                                 break@label
                             }
