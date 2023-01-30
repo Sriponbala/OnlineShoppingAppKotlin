@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6cf44f4-04cc-4ec5-9236-711fdb7e35d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/data/CartItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/CartItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/CartDaoImplementation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/CartDaoImplementation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,7 @@
     "jdk.selected.JAVA_MODULE": "1.8"
   }
 }]]></component>
-  <component name="RunManager" selected="Kotlin.MainKt">
+  <component name="RunManager" selected="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]">
     <configuration name="OnlineShoppingAppKotlin [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -162,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Kotlin.MainKt" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
+        <item itemvalue="Kotlin.MainKt" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675060311388</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="First Commit!">
+      <created>1675071248404</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675071248404</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

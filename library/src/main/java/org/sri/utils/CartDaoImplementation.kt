@@ -35,7 +35,7 @@ internal class CartDaoImplementation private constructor(private val userName: S
     }
 
     override fun addToCart(cartId: String, skuId: String) { //product: Product, stock: Stock)
-        val cartItem = CartItem(cartId = cartId, skuId = skuId)
+        val cartItem = CartItem(skuId)
         for(cart in database.carts) {
             if(cartId == cart.cartId) {
                 cart.cartItems.add(cartItem)
