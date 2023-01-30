@@ -85,7 +85,7 @@ internal class ProductActivities(private val utility: UtilityDao, private val pr
             }
             FilterBy.STATUS -> {
                 val filter : Filter.StatusFilter = finalFilter as Filter.StatusFilter
-                filteredProductsList.filter { it.second.status == filter.status }.also { println(it) } as MutableList<Pair<Product, StockStatus>>
+                filteredProductsList.filter { it.second.status == filter.status } as MutableList<Pair<Product, StockStatus>>
             }
             else -> mutableListOf()
         }
