@@ -47,7 +47,7 @@ internal class WishListsDaoImplementation private constructor(private val userNa
     }
 
     override fun addAProductToWishList(wishListId: String, skuId: String) {
-        val wishListItem = WishListItem(wishListId, skuId)
+        val wishListItem = WishListItem(skuId)
         for(wishList in database.usersWishList) {
             if(wishListId == wishList.wishListId) {
                 wishList.wishListItems.add(wishListItem)

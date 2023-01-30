@@ -13,8 +13,6 @@ internal interface ProductsDao {
 
     fun updateStatusOfProduct(lineItem: LineItem)
 
-//    fun retrieveAProduct(skuId: String): ProductInfo?
-
     fun retrieveProductDetails(skuId: String): Pair<Product, StockStatus>?
 
     fun addProductDetails()

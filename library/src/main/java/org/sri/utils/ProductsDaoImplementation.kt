@@ -75,17 +75,6 @@ internal class ProductsDaoImplementation private constructor(private val userNam
         }
     }
 
-    /*    override fun retrieveAProduct(skuId: String): ProductInfo? {
-            var productData: ProductInfo? = null
-            for(productInfo in database.productsInfo) {
-                if(skuId == productInfo.skuId && productInfo.status == StockStatus.INSTOCK) {
-                    productData = productInfo
-                    break
-                }
-            }
-            return productData
-        }*/
-
     override fun retrieveProductDetails(skuId: String): Pair<Product, StockStatus>? {
         var productSku: Pair<Product, StockStatus>? = null
         for(localProductSku in database.productSkus) {

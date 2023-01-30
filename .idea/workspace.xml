@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e6cf44f4-04cc-4ec5-9236-711fdb7e35d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/data/WishListItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/interfaces/ProductsDao.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/ProductsDaoImplementation.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/library/src/main/java/org/sri/utils/WishListsDaoImplementation.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,8 +163,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
         <item itemvalue="Gradle.OnlineShoppingAppKotlin [publishToMavenLocal]" />
+        <item itemvalue="Gradle.OnlineShoppingAppKotlin [build]" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675055276332</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="First Commit!">
+      <created>1675060311388</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675060311388</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
